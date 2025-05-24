@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import AppHead from '../AppHead/AppHead';
+import AddPhraseButton from '../AddPhrases/AddPhrasesButton';
 
 interface AppWrapperProps {
   children: React.ReactNode;
@@ -24,6 +25,7 @@ const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
       }}>
         {children}
       </Box>
+      <AddPhraseButton />
     </Box>
   );
 };

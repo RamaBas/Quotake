@@ -3,18 +3,28 @@ import { Box, Grid, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import PhraseCard from '../../components/PhraseCard/PhraseCard';
 import { usePhrases } from '../../contexts/PhrasesContext';
+import DeleteModal from '../../components/DeleteModal/deleteModal';
 
 const PhrasesGridPage: React.FC = () => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const { deletePhrase, searchPhrases } = usePhrases();
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [phraseToDelete, setPhraseToDelete] = useState<string | null>(null);
 
   const filteredPhrases = searchPhrases(searchTerm);
 
-  const handleDelete = (id: string) => {{
-      deletePhrase(id);
-      // Agregar lógica para consultar si se desea eliminar ?? - Extra
+  const handleDeleteClick = (id: string) => {
+    setPhraseToDelete(id);
+    setDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (phraseToDelete) {
+      deletePhrase(phraseToDelete);
     }
+    setDeleteModalOpen(false);
+    setPhraseToDelete(null);
   };
 
   return (
@@ -34,15 +44,19 @@ const PhrasesGridPage: React.FC = () => {
       <Grid container spacing={2}>
         {filteredPhrases.map((phrase) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={phrase.id}>
-            {/* Pendiente desarrollar cambio de fondo ?? */}
             <PhraseCard
               phrase={phrase}
-              onDelete={handleDelete}
-              backgroundColor="#EDF7FA"
+              onDelete={handleDeleteClick}
             />
           </Grid>
         ))}
       </Grid>
+
+      <DeleteModal
+        open={deleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+        onConfirm={handleConfirmDelete}
+      />
     </>
   );
 };
