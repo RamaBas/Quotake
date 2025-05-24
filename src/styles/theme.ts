@@ -12,6 +12,22 @@ const theme = createTheme({
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          margin: 0,
+          padding: 0,
+        },
+        '#root': {
+          width: '100%',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+        },
+      },
+    },
+  },
 });
 
 export default theme;
