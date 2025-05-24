@@ -10,12 +10,16 @@ i18n.use(initReactI18next).init({
   resources: {
     es: {
       translation: {
-        addPhrase: 'Agregar Frase',
+        appTitle: 'Quotake!',
+        searchPlaceholder: 'Buscar frases...',
+        noPhrases: 'No hay frases aún. ¡Agrega una!',
       },
     },
     en: {
       translation: {
-        addPhrase: 'Add Phrase',
+        appTitle: 'Quotake!',
+        searchPlaceholder: 'Search phrase...',
+        noPhrases: 'Its empty... Add a Phrase!',
       },
     },
   },
