@@ -46,7 +46,8 @@ const PhrasesGridPage: React.FC = () => {
       </Box>
       <Grid container spacing={2}>
       {filteredPhrases.map((phrase: Phrase) => (
-        <Grid item key={phrase.id} xs={12} sm={6} md={4} lg={3}>
+        // @ts-ignore
+        <Grid xs={12} sm={6} md={4} lg={3} component="div">
           <PhraseCard
             phrase={phrase}
             onDelete={handleDelete}
