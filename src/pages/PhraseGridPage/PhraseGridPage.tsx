@@ -3,7 +3,7 @@ import { Box, Grid, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import PhraseCard from '../../components/PhraseCard/PhraseCard';
 import { usePhrases } from '../../contexts/PhrasesContext';
-import DeleteModal from '../../components/DeleteModal/deleteModal';
+import DeleteModal from '../../components/DeleteModal/DeleteModal';
 
 const PhrasesGridPage: React.FC = () => {
   const { t } = useTranslation();
@@ -43,6 +43,7 @@ const PhrasesGridPage: React.FC = () => {
       
       <Grid container spacing={2}>
         {filteredPhrases.map((phrase) => (
+          // @ts-ignore
           <Grid item xs={12} sm={6} md={4} lg={3} key={phrase.id}>
             <PhraseCard
               phrase={phrase}
