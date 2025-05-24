@@ -8,13 +8,11 @@ interface PhraseCardProps {
     text: string;
   };
   onDelete: (id: string) => void;
-  backgroundColor: string;
 }
 
-const PhraseCard: React.FC<PhraseCardProps> = ({ phrase, onDelete, backgroundColor }) => {
+const PhraseCard: React.FC<PhraseCardProps> = ({ phrase, onDelete }) => {
   return (
     <Card sx={{ 
-      backgroundColor,
       position: 'relative',
       minHeight: 100,
       maxHeight: "auto",
@@ -34,7 +32,6 @@ const PhraseCard: React.FC<PhraseCardProps> = ({ phrase, onDelete, backgroundCol
         <FormatQuote 
           sx={{ 
             fontSize: '3rem',
-            color: backgroundColor === '#EDF7FA' ? 'text.primary' : '#EDF7FA',
           }} 
         />
       </Box>

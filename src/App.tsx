@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import theme from './styles/theme';
 import i18n from './i18n/i18n';
 import AppRoutes from './routes/routes';
+import { PhrasesProvider } from './contexts/PhrasesContext';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
-          <AppRoutes />
+          <PhrasesProvider>
+            <AppRoutes />
+          </PhrasesProvider>
         </BrowserRouter>
       </ThemeProvider>
     </I18nextProvider>
