@@ -1,14 +1,16 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Wrapper from '../components/Wrapper/Wrapper';
 
 const PhrasesGridPage = lazy(() => import('../pages/PhraseGridPage/PhraseGridPage'));
-const Wrapper = lazy(() => import('../components/Wrapper/Wrapper'));
 
 const AppRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Wrapper children={<PhrasesGridPage />} />} />
-    </Routes>
+  <Suspense fallback={<div><h1>Q!.</h1></div>}>
+      <Routes>
+        <Route path="/" element={<Wrapper><PhrasesGridPage /></Wrapper>} />
+      </Routes>
+ </Suspense>
   );
 };
 

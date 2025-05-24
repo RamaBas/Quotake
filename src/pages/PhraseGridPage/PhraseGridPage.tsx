@@ -2,33 +2,19 @@ import React, { useState } from 'react';
 import { Box, Grid, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import PhraseCard from '../../components/PhraseCard/PhraseCard';
-
-//Agregar al types luego
-interface Phrase {
-  id: string;
-  text: string;
-}
+import { usePhrases } from '../../contexts/PhrasesContext';
 
 const PhrasesGridPage: React.FC = () => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
-  
-  // Mock data - Luego lo reemplazare por el context state
-  const mockPhrases = [
-    { id: '1', text: 'Aquel que a buen árbol se arrima, buena sombra recibe' },
-    { id: '2', text: 'La vida es lo que pasa mientras estás ocupado haciendo Challanges.' },
-    { id: '3', text: 'La simplicidad es la máxima sofisticación.'},
-    { id: '4', text: 'El único modo de hacer un gran trabajo es amar lo que haces.' },
-  ];
+  const { deletePhrase, searchPhrases } = usePhrases();
 
-  const filteredPhrases = mockPhrases.filter(phrase =>
-    phrase.text.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPhrases = searchPhrases(searchTerm);
 
-  const handleDelete = (id: string) => {
-    console.log('Eliminar frase con id:', id);
-    // Agregar lógica para consultar si se desea eliminar ?? - Extra
-    // Agregar lógica para eliminar desde el context state
+  const handleDelete = (id: string) => {{
+      deletePhrase(id);
+      // Agregar lógica para consultar si se desea eliminar ?? - Extra
+    }
   };
 
   return (
@@ -44,18 +30,19 @@ const PhrasesGridPage: React.FC = () => {
           sx={{ backgroundColor: '#fff', borderRadius: 1, boxShadow: 1 }}
         />
       </Box>
+      
       <Grid container spacing={2}>
-      {filteredPhrases.map((phrase: Phrase) => (
-        // @ts-ignore
-        <Grid xs={12} sm={6} md={4} lg={3} component="div">
-          <PhraseCard
-            phrase={phrase}
-            onDelete={handleDelete}
-            backgroundColor="#EDF7FA"
-          />
-        </Grid>
-      ))}
-    </Grid>
+        {filteredPhrases.map((phrase) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} key={phrase.id}>
+            {/* Pendiente desarrollar cambio de fondo ?? */}
+            <PhraseCard
+              phrase={phrase}
+              onDelete={handleDelete}
+              backgroundColor="#EDF7FA"
+            />
+          </Grid>
+        ))}
+      </Grid>
     </>
   );
 };
