@@ -1,21 +1,31 @@
 import React from 'react';
 import { Card, CardContent, IconButton, Typography, Box } from '@mui/material';
-import { Close, FormatQuote } from '@mui/icons-material';
+import { Close, FormatQuote, Undo } from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
 
 interface PhraseCardProps {
   phrase: {
     id: string;
     text: string;
   };
-  onDelete: (id: string) => void;
+  onDelete?: (id: string) => void;
+  onRestore?: (id: string) => void;
+  variant?: 'default' | 'deleted';
 }
 
-const PhraseCard: React.FC<PhraseCardProps> = ({ phrase, onDelete }) => {
+const PhraseCard: React.FC<PhraseCardProps> = ({ 
+  phrase, 
+  onDelete,
+  onRestore,
+  variant = 'default',
+}) => {
+  const { t } = useTranslation(); // Agregar AriaLabels
+
   return (
     <Card sx={{ 
       position: 'relative',
-      minHeight: 100,
-      maxHeight: "auto",
+      border: variant === 'deleted' ? '1px dashed #ccc' : 'none',
+      opacity: variant === 'deleted' ? 0.6 : 1,
       '&:hover': {
         boxShadow: 3,
       },
@@ -43,18 +53,19 @@ const PhraseCard: React.FC<PhraseCardProps> = ({ phrase, onDelete }) => {
         display: 'flex',
         flexDirection: 'row',
       }}>
-        <Typography 
-          variant="body1" 
-          sx={{ 
-            padding: 2,
-            wordBreak: 'break-word',
-            flexGrow: 1,
-          }}
-        >
-          {phrase.text}
-        </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              padding: 2,
+              wordBreak: 'break-word',
+              flexGrow: 1,
+            }}
+          >
+            {phrase.text}
+          </Typography>
       </CardContent>
-
+      {/* Eliminar frase */}
+      {variant === 'default' && onDelete && (
       <IconButton
         aria-label="Eliminar frase"
         onClick={() => onDelete(phrase.id)}
@@ -62,7 +73,7 @@ const PhraseCard: React.FC<PhraseCardProps> = ({ phrase, onDelete }) => {
           position: 'absolute',
           top: 2,
           right: 2,
-          zIndex: 2, // Encima de todo
+          zIndex: 2,
           '&:hover': {
             color: 'error.main',
             backgroundColor: 'rgba(220, 0, 78, 0.1)',
@@ -71,6 +82,24 @@ const PhraseCard: React.FC<PhraseCardProps> = ({ phrase, onDelete }) => {
       >
         <Close fontSize="small" />
       </IconButton>
+      )}
+      {/* Restaurar frase */}
+      {variant === 'deleted' && onRestore && (
+            <IconButton
+            aria-label="Restaurar frase"
+            onClick={() => onRestore(phrase.id)}
+            size="small"
+            color="primary"
+            sx={{
+              position: 'absolute',
+              top: 2,
+              right: 2,
+              zIndex: 2,
+            }}
+          >
+            <Undo fontSize="small" />
+          </IconButton>
+        )}
     </Card>
   );
 };
