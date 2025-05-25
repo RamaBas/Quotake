@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Grid, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import PhraseCard from '../../components/PhraseCard/PhraseCard';
 import { usePhrases } from '../../contexts/PhrasesContext';
 import DeleteModal from '../../components/DeleteModal/DeleteModal';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import PhrasesGridWrapper from '../../components/PhrasesGridWrapper/PhrasesGridWrapper';
 
 const PhrasesGridPage: React.FC = () => {
   const { t } = useTranslation();
@@ -29,29 +29,17 @@ const PhrasesGridPage: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ mb: 3 }}>
-        <TextField
-          label={t('searchPlaceholder')}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          fullWidth
-          variant="outlined"
-          size="small"
-          sx={{ backgroundColor: '#fff', borderRadius: 1, boxShadow: 1 }}
-        />
-      </Box>
-      
-      <Grid container spacing={2}>
-        {filteredPhrases.map((phrase) => (
-          // @ts-ignore
-          <Grid item xs={12} sm={6} md={4} lg={3} key={phrase.id}>
-            <PhraseCard
-              phrase={phrase}
-              onDelete={handleDeleteClick}
-            />
-          </Grid>
-        ))}
-      </Grid>
+    {filteredPhrases.length > 0 && (
+      <SearchBar
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+      />
+    )}
+      <PhrasesGridWrapper
+        phrases={filteredPhrases}
+        onDelete={handleDeleteClick}
+        emptyMessage={t('noPhrasesFound')}
+      />
 
       <DeleteModal
         open={deleteModalOpen}
