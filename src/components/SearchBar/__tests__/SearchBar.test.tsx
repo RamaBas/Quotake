@@ -10,11 +10,14 @@ describe('SearchBar Component', () => {
   };
 
   it('renders correctly with initial props', () => {
-    render(<SearchBar {...initialProps} />);
+    const { asFragment } = render(<SearchBar {...initialProps} />);
+
     
     const textField = screen.getByRole('textbox');
     expect(textField).toBeInTheDocument();
     expect(textField).toHaveValue('');
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('calls onSearchChange when typing', () => {

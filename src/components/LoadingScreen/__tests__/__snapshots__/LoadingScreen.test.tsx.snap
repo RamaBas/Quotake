@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingScreen Component renders correctly with fixed positioning 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-1qm9j7u"
+    data-testid="loading-screen"
+  >
+    <h1
+      class="MuiTypography-root MuiTypography-h1 animate__animated animate__flip css-8vrb60-MuiTypography-root"
+    >
+      Q!
+    </h1>
+  </div>
+</DocumentFragment>
+`;

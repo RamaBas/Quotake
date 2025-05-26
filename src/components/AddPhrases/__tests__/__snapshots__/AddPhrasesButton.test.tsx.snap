@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddPhraseButton renders the component 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="add"
+    class="MuiButtonBase-root MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary MuiFab-root MuiFab-circular MuiFab-sizeLarge MuiFab-primary css-1onxd2y-MuiButtonBase-root-MuiFab-root"
+    tabindex="0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+      data-testid="AddIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"
+      />
+    </svg>
+  </button>
+</DocumentFragment>
+`;
