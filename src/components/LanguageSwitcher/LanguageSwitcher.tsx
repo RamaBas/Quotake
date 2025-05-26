@@ -18,7 +18,7 @@ export const LanguageSwitcher = () => {
   return (
     <>
       <IconButton onClick={handleOpenMenu} color="inherit">
-        <Language data-testid="LanguageIcon" />
+        {currentLanguage && <Language data-testid="LanguageIcon" />}
       </IconButton>
       <Menu
         anchorEl={anchorEl}
