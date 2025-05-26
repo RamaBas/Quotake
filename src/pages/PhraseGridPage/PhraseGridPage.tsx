@@ -8,7 +8,7 @@ import PhrasesGridWrapper from '../../components/PhrasesGridWrapper/PhrasesGridW
 const PhrasesGridPage: React.FC = () => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
-  const { deletePhrase, searchPhrases } = usePhrases();
+  const { phrases, deletePhrase, searchPhrases } = usePhrases();
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [phraseToDelete, setPhraseToDelete] = useState<string | null>(null);
 
@@ -29,7 +29,7 @@ const PhrasesGridPage: React.FC = () => {
 
   return (
     <>
-    {filteredPhrases.length > 0 && (
+    {phrases.length > 0 && (
       <SearchBar
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
@@ -38,7 +38,7 @@ const PhrasesGridPage: React.FC = () => {
       <PhrasesGridWrapper
         phrases={filteredPhrases}
         onDelete={handleDeleteClick}
-        emptyMessage={t('noPhrasesFound')}
+        emptyMessage={searchTerm ? t('noPhrasesFound') : t('phrasesIsEmpty')}
       />
 
       <DeleteModal
