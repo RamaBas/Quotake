@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhrasesGridPage renders correctly with phrases 1`] = `
+<DocumentFragment>
+  <input
+    data-testid="search-bar-mock"
+    type="text"
+  />
+  <div
+    data-testid="phrases-grid-mock"
+  />
+  <div
+    data-open="false"
+    data-testid="delete-modal-mock"
+  />
+</DocumentFragment>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppWrapper Component renders correctly with main structure 1`] = `
+<div
+  class="MuiBox-root css-17rx1af"
+>
+  <div
+    data-testid="app-head-mock"
+  />
+  <main
+    class="MuiBox-root css-cpcsu7"
+  >
+    <div>
+      Child Content
+    </div>
+  </main>
+  <div
+    data-testid="add-phrase-button-mock"
+  />
+</div>
+`;

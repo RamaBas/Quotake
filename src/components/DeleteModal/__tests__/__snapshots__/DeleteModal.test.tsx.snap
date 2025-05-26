@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteModal Component matches snapshot when open 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="modal-mock"
+  >
+    <div
+      class="MuiStack-root css-v2woy3-MuiStack-root"
+    >
+      <h6
+        class="MuiTypography-root MuiTypography-h6 css-19nfv5h-MuiTypography-root"
+      >
+        deleteConfirmation
+      </h6>
+      <div
+        class="MuiStack-root css-14w1sp1-MuiStack-root"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-1axjf0i-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          denyButton
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError css-nb3w9g-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          confirmButton
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

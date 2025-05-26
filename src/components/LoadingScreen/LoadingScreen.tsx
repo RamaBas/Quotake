@@ -5,6 +5,7 @@ import 'animate.css/animate.min.css';
 const LoadingScreen: React.FC = () => {
   return (
     <Box
+      data-testid="loading-screen"
       sx={{
         position: 'fixed',
         top: 0,
