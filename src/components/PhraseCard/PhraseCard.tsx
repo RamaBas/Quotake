@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, IconButton, Typography, Box } from '@mui/material';
 import { Close, FormatQuote, Undo } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
+//import { useTranslation } from 'react-i18next';
 
 interface PhraseCardProps {
   phrase: {
@@ -19,7 +19,7 @@ const PhraseCard: React.FC<PhraseCardProps> = ({
   onRestore,
   variant = 'default',
 }) => {
-  const { t } = useTranslation(); // Agregar AriaLabels
+//  const { t } = useTranslation(); // Agregar AriaLabels
 
   return (
     <Card sx={{ 
