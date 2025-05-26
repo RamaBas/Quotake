@@ -2,8 +2,6 @@ import '@testing-library/jest-dom';
 import { configure } from '@testing-library/react';
 import { jest } from '@jest/globals';
 
-
-// Configuración de Testing Library
 configure({
   asyncUtilTimeout: 3000
 });

@@ -33,6 +33,7 @@ const config: Config.InitialOptions = {
     '!src/**/*.stories.tsx',
     '!src/**/index.ts',
     '!src/setupTests.ts',
+    '!src/main.tsx',
     '!src/App.tsx',
     '!src/contexts/**',
     '!src/i18n/**',
@@ -41,7 +42,7 @@ const config: Config.InitialOptions = {
   ],
 
   moduleNameMapper: {
-    '\\.(css|less|scss)$': 'identity-obj-proxy', // Lo añado para evitar error al importar en LoadingScreen
+    '\\.(css|less|scss)$': 'identity-obj-proxy', // Lo añado para evitar error al importar animate en LoadingScreen
     '^@/(.*)$': '<rootDir>/src/$1',
   }
 };
