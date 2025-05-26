@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
 
 const AppHead: React.FC = () => {
   const { t } = useTranslation();
@@ -14,6 +15,8 @@ const AppHead: React.FC = () => {
         py: 3,
         px: { xs: 2, md: 4 },
         boxShadow: 1,
+        display: 'flex',
+        justifyContent: 'space-between',
       }}
     >
       <Typography 
@@ -26,6 +29,7 @@ const AppHead: React.FC = () => {
       >
         {t('appTitle')}
       </Typography>
+      <LanguageSwitcher />
     </Box>
   );
 };

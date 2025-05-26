@@ -4,9 +4,12 @@ import LoadingScreen from '../LoadingScreen';
 
 describe('LoadingScreen Component', () => {
   it('renders correctly with fixed positioning', () => {
-    render(<LoadingScreen />);
+    const { asFragment } = render(<LoadingScreen />);
     
     const loadingBox = screen.getByTestId('loading-screen');
     expect(loadingBox).toBeInTheDocument();
+
+    expect(asFragment()).toMatchSnapshot();
+
   });
 });

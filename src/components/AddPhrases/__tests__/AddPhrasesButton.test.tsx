@@ -16,8 +16,10 @@ afterEach(() => {
 
 describe('AddPhraseButton', () => {
   it('renders the component', () => {
-    render(<AddPhraseButton />);
+    const { asFragment } = render(<AddPhraseButton />);
     expect(screen.getByLabelText('add')).toBeInTheDocument();
+
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('opens modal when button is clicked', () => {
