@@ -5,13 +5,7 @@ const PhrasesContext = createContext<PhrasesContextType | undefined>(undefined);
 
 export const PhrasesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
-  // Falta desarrollar addPhrase para dejr de mockear esto
-  const [phrases, setPhrases] = useState<Phrase[]>([
-    { id: '1', text: 'Aquel que a buen árbol se arrima, buena sombra recibe' },
-    { id: '2', text: 'La vida es lo que pasa mientras estás ocupado haciendo Challanges.' },
-    { id: '3', text: 'La simplicidad es la máxima sofisticación.' },
-    { id: '4', text: 'El único modo de hacer un gran trabajo es amar lo que haces.' },
-  ]);
+  const [phrases, setPhrases] = useState<Phrase[]>([]);
 
   const addPhrase = useCallback((text: string) => {
     setPhrases(prev => [
