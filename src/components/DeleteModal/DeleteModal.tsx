@@ -17,7 +17,7 @@ const DeleteModal: React.FC<DeleteModalProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Modal open={open} onClose={onClose} width={350}>
+    <Modal open={open} onClose={onClose} width={350} data-testid="delete-modal">
       <Stack spacing={3}>
         <Typography variant="h6" textAlign="center">
           {t('deleteConfirmation')}

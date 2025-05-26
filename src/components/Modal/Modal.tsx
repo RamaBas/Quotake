@@ -16,6 +16,7 @@ const BaseModal: React.FC<BaseModalProps> = ({ open, onClose, children, width = 
       onClose={onClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
+      data-testid="modal-content"
     >
       <Box
         sx={{

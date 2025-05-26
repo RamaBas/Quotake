@@ -32,8 +32,12 @@ const config: Config.InitialOptions = {
     '!src/**/*.d.ts',
     '!src/**/*.stories.tsx',
     '!src/**/index.ts',
-    '!src/main.tsx',
-    '!src/setupTests.ts'
+    '!src/setupTests.ts',
+    '!src/App.tsx',
+    '!src/contexts/**',
+    '!src/i18n/**',
+    '!src/routes/**',
+    '!src/styles/**',
   ],
 
   moduleNameMapper: {

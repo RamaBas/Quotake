@@ -35,6 +35,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           boxShadow: 1,
           flexGrow: 1
         }}
+        data-testid="search-bar-input"
       />
     </Box>
   );
